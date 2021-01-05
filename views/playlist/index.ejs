@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+      <h1>Playlists</h1>
+        <ul>
+          <% for (let i = 0; i < playlist.length; i++) { %>
+            <li>
+              <a href="/playlist/<%=playlist[i]._id%>">
+                <%= playlist[i].playlistTitle %>
+              </a>
+            </li>
+          <% } %>
+    </div>
+  </body>
+</html>

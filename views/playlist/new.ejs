@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+    <title></title>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <h1>Create a new playlist</h1>
+    <form class="create" action="/playlist" method="POST">
+      <label for="playlistTitle">Title</label>
+      <input type="text" name="playlistTitle" required />
+      <label for="playlistDescription">Description</label>
+      <input type="text" name="playlistDescription" required />
+      <br><br>
+      <input type="submit" value="Create">
+    </form>
+  </body>
+</html>
