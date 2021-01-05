@@ -29,7 +29,7 @@ playlist.delete('/:id', (req, res) => {
 playlist.get('/:id', (req, res) => {
   Playlists.findById(req.params.id, (error, foundPlaylists) => {
     res.render('playlist/show.ejs', {
-      playlist: foundPlaylists
+      playlist: foundPlaylists,
     })
   })
 })
