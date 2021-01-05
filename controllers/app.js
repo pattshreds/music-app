@@ -18,6 +18,12 @@ playlist.get('/:id/edit', (req, res) => {
   })
 })
 
+playlist.delete('/:id', (req, res) => {
+  Playlists.findByIdAndRemove(req.params.id, (error, deletedPlaylist) => {
+    res.redirect('/playlist')
+  })
+})
+
 // Show
 
 playlist.get('/:id', (req, res) => {
