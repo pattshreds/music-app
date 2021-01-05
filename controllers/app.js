@@ -8,6 +8,16 @@ playlist.get('/create', (req, res) => {
   res.render('playlist/new.ejs')
 })
 
+// Edit
+
+playlist.get('/:id/edit', (req, res) => {
+  Playlists.findById(req.params.id, (error, foundPlaylists) => {
+    res.render('playlist/edit.ejs', {
+      playlist: foundPlaylists
+    })
+  })
+})
+
 // Show
 
 playlist.get('/:id', (req, res) => {
@@ -15,6 +25,15 @@ playlist.get('/:id', (req, res) => {
     res.render('playlist/show.ejs', {
       playlist: foundPlaylists
     })
+  })
+})
+
+// Update
+
+playlist.put('/:id', (req, res) => {
+  Playlists.findByIdAndUpdate(req.params.id, req.body, {new: true},
+  (error, updatedPlaylist) => {
+    res.redirect('/playlist')
   })
 })
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+    <title></title>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+      <h1>Edit <%=playlist.playlistTitle%></h1>
+      <form action="/playlist/<%=playlist._id%>?_method=PUT" method="POST">
+        <label for="playlistTitle">Title</label>
+        <input type="text" name="playlistTitle" value="<%=playlist.playlistTitle%>" />
+        <label for="playlistDescription">Description</label>
+        <input type="text" name="playlistDescription" value="<%=playlist.playlistDescription%>" />
+        <input type="submit" value="Submit Changes">
+      </form>
+    </div>
+  </body>
+</html>
