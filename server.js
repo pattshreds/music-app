@@ -61,6 +61,9 @@ app.use('/users', userController)
 const sessionsController = require('./controllers/sessions.js')
 app.use('/sessions', sessionsController)
 
+const landingController = require('./controllers/landing.js')
+app.use('/landing', landingController)
+
 //====================
 // Listener
 //====================

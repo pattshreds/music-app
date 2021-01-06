@@ -7,12 +7,11 @@ const isAuthenticted = (req, res, next) => {
   if (req.session.currentUser) {
     return next();
   } else {
-    res.redirect('/sessions/new')
+    res.redirect('/landing/landing')
   }
 }
 
 playlist.use(isAuthenticted)
-
 
 // New
 
