@@ -21,12 +21,15 @@
   },
   "homepage": "https://github.com/pattshreds/music-app#readme",
   "dependencies": {
+    "cloudinary": "^1.23.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
     "express-session": "^1.17.1",
     "fs": "0.0.1-security",
     "method-override": "^3.0.0",
-    "mongoose": "^5.11.9"
+    "mongoose": "^5.11.9",
+    "multer": "^1.4.2"
   }
 }

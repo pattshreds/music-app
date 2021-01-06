@@ -1,6 +1,9 @@
 const express = require('express')
 const Playlists = require('../models/playlist.js')
+const cloudinary = require('cloudinary').v2
 const playlist = express.Router()
+
+
 
 // New
 
@@ -46,8 +49,19 @@ playlist.put('/:id', (req, res) => {
 // Create
 
 playlist.post('/', (req, res) => {
-  Playlists.create(req.body, (error, createdPlaylist) => {
-    res.redirect('/playlist')
+    const audioFile = req.files.audio
+    // console.log(req.files.audio);
+    cloudinary.uploader.upload(audioFile.tempFilePath, {resource_type: "video"}, (error, data) => {
+      console.log(data);
+      if (error){
+         console.log(error)
+      } else {
+
+        req.body.audio = data.url
+      Playlists.create(req.body, (error, createdPlaylist) => {
+        res.redirect('/playlist')
+        })
+      }
   })
 })
 
