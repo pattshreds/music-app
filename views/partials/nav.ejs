@@ -1,7 +1,15 @@
-<a href="/playlist" class="brand-logo left">Music App</a>
+<a href="/playlist" class="brand-logo left">MOODset</a>
 <ul class="right">
-    <li><a href="/playlist/create">Create Playlist</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Sign Up</a> </li>
-    <li><a href="#">Log In</a> </li>
+  <li><a href="/playlist/create">Create Playlist</a></li>
+  <% if (currentUser) { %>
+    <li>Welcome, <%= currentUser.username %></li>
+    <li>
+      <form action="/sessions?_method=DELETE" method="post">
+        <input type="submit" value="Log Out" class="btn-small red">
+      </form>
+    </li>
+  <% } else { %>
+    <li><a href="/users/new">Sign Up</a> </li>
+    <li><a href="/sessions/new">Log In</a> </li>
+  <% } %>
 </ul>

@@ -3,12 +3,24 @@ const Playlists = require('../models/playlist.js')
 const cloudinary = require('cloudinary').v2
 const playlist = express.Router()
 
+const isAuthenticted = (req, res, next) => {
+  if (req.session.currentUser) {
+    return next();
+  } else {
+    res.redirect('/sessions/new')
+  }
+}
+
+playlist.use(isAuthenticted)
 
 
 // New
 
 playlist.get('/create', (req, res) => {
-  res.render('playlist/new.ejs')
+  res.render(
+    'playlist/new.ejs',
+    {currentUser: req.session.currentUser}
+  )
 })
 
 // Edit
@@ -16,7 +28,8 @@ playlist.get('/create', (req, res) => {
 playlist.get('/:id/edit', (req, res) => {
   Playlists.findById(req.params.id, (error, foundPlaylists) => {
     res.render('playlist/edit.ejs', {
-      playlist: foundPlaylists
+      playlist: foundPlaylists,
+      currentUser: req.session.currentUser
     })
   })
 })
@@ -33,6 +46,7 @@ playlist.get('/:id', (req, res) => {
   Playlists.findById(req.params.id, (error, foundPlaylists) => {
     res.render('playlist/show.ejs', {
       playlist: foundPlaylists,
+      currentUser: req.session.currentUser
     })
   })
 })
@@ -69,7 +83,8 @@ playlist.post('/', (req, res) => {
 playlist.get('/', (req, res) => {
   Playlists.find({}, (error, allplaylist) => {
     res.render('playlist/index.ejs', {
-      playlist: allplaylist
+      playlist: allplaylist,
+      currentUser: req.session.currentUser
     })
   })
 })
