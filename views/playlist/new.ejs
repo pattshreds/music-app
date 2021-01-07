@@ -9,16 +9,18 @@
     <nav>
       <%- include ('../partials/nav.ejs') %>
     </nav>
-    <h1 class="create">Create a new playlist</h1>
-    <form class="create" action="/playlist" enctype="multipart/form-data" method="POST">
-      <label for="playlistTitle">Title</label>
-      <input type="text" name="playlistTitle" required />
-      <label for="playlistDescription">Description</label>
-      <input type="text" name="playlistDescription" required />
-      <input type="file" name="audio">
-      <br><br>
-      <input type="submit" value="Create">
-    </form>
+    <div class="container">
+      <h1 class="title">Create a new playlist</h1>
+        <form class="create" action="/playlist" enctype="multipart/form-data" method="POST">
+          <label for="playlistTitle">Title</label>
+          <input type="text" name="playlistTitle" required />
+          <label for="playlistDescription">Description</label>
+          <input type="text" name="playlistDescription" required />
+          <input type="file" name="audio">
+          <br><br>
+          <input type="submit" value="Create">
+        </form>
+  </div>
     <br><br>
     <footer class="page-footer">
       <%- include ('../partials/footer.ejs') %>
