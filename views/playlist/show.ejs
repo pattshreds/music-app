@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <%- include ('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/styles.css">
     <title></title>
   </head>
   <body>
@@ -11,16 +12,19 @@
       <div class="container">
         <h1> <%= playlist.playlistTitle %> </h1>
         <p><i>Edit playlist to add music</i></p>
+        <!-- I can't figure out how to add an aditional song without erasing the first. -->
         <h5> <%= playlist.playlistDescription %> </h5>
         <a href="/playlist/<%=playlist._id%>/edit">Edit this playlist</a>
-        <br><br>
         <form action="/playlist/<%=playlist._id%>?_method=DELETE" method="POST">
-          <input type="submit" value="Delete this playlist">
+          <input class="button" type="submit" value="Delete this playlist">
         </form>
         <br><br>
         <audio controls>
           <source src="<%=playlist.audio%>"
         </audio>
       </div>
+      <footer class="page-footer">
+        <%- include ('../partials/footer.ejs') %>
+      </footer>
   </body>
 </html>

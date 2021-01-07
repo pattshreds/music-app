@@ -3,7 +3,6 @@
   <head>
     <%- include ('../partials/head.ejs') %>
     <link rel="stylesheet" href="/css/styles.css">
-    <title></title>
   </head>
   <body>
     <nav>
@@ -11,6 +10,19 @@
     </nav>
     <div class="container">
       <img src="/images/landing.gif" id="gif" alt="moodset gif" />
+      <h4 class="happy">Welcome to your happy place</h4>
     </div>
+    <div class="wrap">
+      <div class="landingp">
+        <p id="intro">
+          We're so glad you're here. This is a space designed for you to create your own story, no matter what task you're working on, we want to make sure it's as enjoyable as possible. Music is one of the best ways available to set your own mood which can help maximize your potential, and we could not be more excited to be a part of your story.
+          <br><br>
+          Click <a href="/users/new">Sign Up</a> to create your account and start setting your mood.
+        </p>
+      </div>
+    </div>   
+      <footer class="page-footer">
+        <%- include ('../partials/footer.ejs') %>
+      </footer>
   </body>
 </html>

@@ -4,10 +4,10 @@
 <ul class="right">
   <li><a href="/playlist/create">Create Playlist</a></li>
   <% if (currentUser) { %>
-    <li>Welcome, <%= currentUser.username %></li>
+    <li class="welcome">Welcome, <%= currentUser.username %></li>
     <li>
       <form action="/sessions?_method=DELETE" method="post">
-        <input type="submit" value="Log Out" class="btn-small red">
+        <input type="submit" value="Log Out" class="btn-small">
       </form>
     </li>
   <% } else { %>

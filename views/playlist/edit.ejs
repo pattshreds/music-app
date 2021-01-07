@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <%- include ('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/styles.css">
     <title></title>
   </head>
   <body>
@@ -9,16 +10,19 @@
       <%- include ('../partials/nav.ejs') %>
     </nav>
     <div class="container">
-      <h1>Edit <%=playlist.playlistTitle%></h1>
+      <h1 class="edit">Edit <%=playlist.playlistTitle%></h1>
       <form action="/playlist/<%=playlist._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
         <label for="playlistTitle">Title</label>
-        <input type="text" name="playlistTitle" placeholder="<%=playlist.playlistTitle%>" />
+        <input type="text" name="playlistTitle" value="<%=playlist.playlistTitle%>" />
         <label for="playlistDescription">Description</label>
-        <input type="text" name="playlistDescription" placeholder="<%=playlist.playlistDescription%>" />
+        <input type="text" name="playlistDescription" value="<%=playlist.playlistDescription%>" />
         <input type="file" name="audio">
         <br><br>
         <input type="submit" value="Submit Changes">
       </form>
     </div>
+    <footer class="page-footer">
+      <%- include ('../partials/footer.ejs') %>
+    </footer>
   </body>
 </html>
