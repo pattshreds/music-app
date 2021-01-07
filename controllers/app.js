@@ -94,8 +94,10 @@ playlist.get('/setup/seed', (req, res) => {
   Playlists.create(
     [
       {
-        playlistTitle: 'Test Playlist',
-        playlistDescription: 'test'
+        playlistTitle: 'Sample Playlist',
+        playlistDescription: 'This is a sample playlist',
+        audio: 'https://res.cloudinary.com/sven2050/video/upload/v1610034816/skdnhmxl2aoebua99int.mp3',
+        audio2: 'https://res.cloudinary.com/sven2050/video/upload/v1610034816/skdnhmxl2aoebua99int.mp3'
       }
     ],
     (error,data) => {
