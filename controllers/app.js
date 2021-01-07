@@ -97,8 +97,10 @@ playlist.get('/setup/seed', (req, res) => {
       {
         playlistTitle: 'Sample Playlist',
         playlistDescription: 'This is a sample playlist',
-        audio: ['https://res.cloudinary.com/sven2050/video/upload/v1610034816/skdnhmxl2aoebua99int.mp3',
-      'https://res.cloudinary.com/sven2050/video/upload/v1610034816/skdnhmxl2aoebua99int.mp3']
+        audio: [
+          'https://res.cloudinary.com/sven2050/video/upload/v1610034816/skdnhmxl2aoebua99int.mp3',
+          'https://res.cloudinary.com/sven2050/video/upload/v1610041249/ngtnd9b6vq2tpxux7vkk.mp3'
+              ]
       }
     ],
     (error,data) => {

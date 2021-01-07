@@ -8,7 +8,10 @@ I started building this by organizing my folders, and getting a route setup to t
 unsolved problems:
 
 - Ability to upload multiple audio files into one playlist.
--
+
+To-Do List:
+
+- Add artist and song name to each audio file in the playlists.
 
 
 
