@@ -19,9 +19,11 @@
           <input class="button" type="submit" value="Delete this playlist">
         </form>
         <br><br>
+        <% for (i = 0; i < playlist.audio.length; i++) { %>
         <audio controls>
-          <source src="<%=playlist.audio%>"
+          <source src="<%=playlist.audio[i]%>">
         </audio>
+        <% } %>
       </div>
       <footer class="page-footer">
         <%- include ('../partials/footer.ejs') %>
