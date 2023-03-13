@@ -1,4 +1,5 @@
 # music-app
+
 <hr>
  
 <h4> My original idea was to create an app that allows users to create their own playlists by uploading audio files. </h4>
@@ -19,9 +20,6 @@ Link to the app is
 <br>
 <strong> To-Do List </strong>
 <ul>
+  <li>Change host from Heroku to something new</li>
   <li>Add artist and song name to each audio file in the playlists.</li>
 </ul>
-
-
-
-
