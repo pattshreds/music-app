@@ -2,7 +2,8 @@
   "name": "music-app",
   "version": "1.0.0",
   "engines": {
-    "node": "14.15.0"
+    // "node": "14.15.0"
+    "node": "18.x"
   },
   "description": "Project two SEIR-mando",
   "main": "server.js",
