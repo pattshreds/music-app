@@ -6,7 +6,7 @@ What started as a school project has turned into a long-term endeavor to create 
 I started building this by organizing my folders, and getting a route setup to test the connections. After that I spent a lot of time working on the functionality and eventually styling. This app uses bcrypt, Cloudinary, dotenv, ejs, express, express-fileupload, express-session, method-override, and mongoose. The hosting is provided by Railway.
 
 Link to the app is
-<a href="moodset.up.railway.app">
+<a href="https://moodset.up.railway.app/landing/landing">
 here.
 </a>
 
