@@ -10,7 +10,6 @@ const isAuthenticted = (req, res, next) => {
     res.redirect('/landing/landing')
   }
 }
-
 playlist.use(isAuthenticted)
 
 // New
@@ -63,13 +62,11 @@ playlist.put('/:id', (req, res) => {
 
 playlist.post('/', (req, res) => {
     const audioFile = req.files.audio
-    // console.log(req.files.audio);
+    console.log(audioFile);
     cloudinary.uploader.upload(audioFile.tempFilePath, {resource_type: "video"}, (error, data) => {
-      console.log(data);
       if (error){
          console.log(error)
       } else {
-
         req.body.audio = data.url
       Playlists.create(req.body, (error, createdPlaylist) => {
         res.redirect('/playlist')
@@ -91,20 +88,23 @@ playlist.get('/', (req, res) => {
 
 // Seed
 
-playlist.get('/setup/seed', (req, res) => {
-  Playlists.create(
+playlist.post('/setup/seed', (req, res) => {
+  Playlists.create(req.body,
     [
       {
         playlistTitle: 'Sample Playlist',
         playlistDescription: 'This is a sample playlist',
         audio: [
-          'https://res.cloudinary.com/sven2050/video/upload/v1610034816/skdnhmxl2aoebua99int.mp3',
-          'https://res.cloudinary.com/sven2050/video/upload/v1610041249/ngtnd9b6vq2tpxux7vkk.mp3'
+          'https://res.cloudinary.com/sven2050/video/upload/v1679351615/Moodset/Bakar_-_Hell_N_Back_Official_Video_cdr2mb.mp3'
               ]
       }
     ],
-    (error,data) => {
-      res.redirect('/playlist')
+    (error) => {
+      if (error) {
+        console.log(error);
+      } else {
+        res.redirect('/playlist')
+      }
     }
   )
 })

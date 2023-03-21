@@ -4,8 +4,9 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const cloudinary = require('cloudinary').v2
 const fileUpload = require('express-fileupload')
-const app = express ()
-const db = mongoose.connection;
+const bodyParser = require('body-parser')
+const app = express()
+const db = mongoose.connection
 require('dotenv').config()
 
 cloudinary.config({
@@ -35,7 +36,7 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
+app.use(bodyParser.json())
 app.use(methodOverride('_method'))
 app.use(session({
   secret: process.env.SECRET,
