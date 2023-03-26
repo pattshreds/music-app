@@ -1,5 +1,5 @@
 const express = require('express')
-const Playlists = require('../models/playlist.js')
+const Playlists = require('../models/playlists.js')
 const cloudinary = require('cloudinary').v2
 const playlist = express.Router()
 
@@ -14,7 +14,7 @@ playlist.use(isAuthenticted)
 
 // New
 
-playlist.get('/create', (req, res) => {
+playlist.get('/new', (req, res) => {
   res.render(
     'playlist/new.ejs',
     {currentUser: req.session.currentUser}
@@ -93,10 +93,10 @@ playlist.post('/setup/seed', (req, res) => {
     [
       {
         playlistTitle: 'Sample Playlist',
-        playlistDescription: 'This is a sample playlist',
-        audio: [
-          'https://res.cloudinary.com/sven2050/video/upload/v1679351615/Moodset/Bakar_-_Hell_N_Back_Official_Video_cdr2mb.mp3'
-              ]
+        playlistDescription: 'This is a sample playlist'
+        // audio: [
+        //   'https://res.cloudinary.com/sven2050/video/upload/v1679351615/Moodset/Bakar_-_Hell_N_Back_Official_Video_cdr2mb.mp3'
+        //       ]
       }
     ],
     (error) => {

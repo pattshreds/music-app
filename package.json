@@ -22,7 +22,6 @@
   "homepage": "https://github.com/pattshreds/music-app#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "body-parser": "^1.20.2",
     "cloudinary": "^1.23.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
