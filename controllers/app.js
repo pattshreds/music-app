@@ -32,6 +32,8 @@ playlist.get('/:id/edit', (req, res) => {
   })
 })
 
+// Delete
+
 playlist.delete('/:id', (req, res) => {
   Playlists.findByIdAndRemove(req.params.id, (error, deletedPlaylist) => {
     res.redirect('/playlist')
@@ -48,6 +50,7 @@ playlist.get('/:id', (req, res) => {
     })
   })
 })
+
 
 // Update
 
@@ -88,23 +91,20 @@ playlist.get('/', (req, res) => {
 
 // Seed
 
-playlist.post('/setup/seed', (req, res) => {
-  Playlists.create(req.body,
+playlist.get('/setup/seed', (req, res) => {
+  Playlists.create(
     [
       {
-        playlistTitle: 'Sample Playlist',
-        playlistDescription: 'This is a sample playlist'
-        // audio: [
-        //   'https://res.cloudinary.com/sven2050/video/upload/v1679351615/Moodset/Bakar_-_Hell_N_Back_Official_Video_cdr2mb.mp3'
-        //       ]
+        playlistTitle: 'seed test',
+        playlistDescription: 'seed test',
+        audio: [
+          "https://res.cloudinary.com/sven2050/video/upload/v1679862666/cekxikmm5ylap0g8xg4m.mp3",
+          "https://res.cloudinary.com/sven2050/video/upload/v1679867484/Moodset/YT2mp3.info_-_Earth_Wind_Fire_-_Shining_Star_Official_Audio_320kbps_j4o746.mp3"
+        ]
       }
     ],
-    (error) => {
-      if (error) {
-        console.log(error);
-      } else {
-        res.redirect('/playlist')
-      }
+    (error, data) => {
+      res.redirect('/playlist')
     }
   )
 })

@@ -134,3 +134,8 @@ footer.page-footer {
   background-color: #8f8400;
   text-align: left;
 }
+
+#audio-controls {
+  border-radius: 40px;
+  /* border: 10px solid rgb(134, 134, 134); */
+}
