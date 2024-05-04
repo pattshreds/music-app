@@ -2,7 +2,12 @@ nav {
     margin-bottom: 5em;
 }
 
+.brand-logo {
+    width: 4.5em;
+    height: 4em;
+}
+
 .brand-logo img {
-    width: 30%;
-    margin-top: -23px;
+    width: 100%;
+    margin: -25px auto auto -10px;
 }

@@ -1,24 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include ('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/styles.css">
-  </head>
-  <body>
-    <nav>
-      <%- include ('../partials/nav.ejs') %>
-    </nav>
-    <div class="container">
-      <img src="/images/landing.gif" id="gif" alt="moodset gif" />
-      <h1 class="new">New User</h1>
-      <form action="/users" method="POST">
-        <label for="name">User Name:</label>
-        <input type="text" name="username" required/>
-        <label for="color">Password:</label>
-        <input type="password" name="password" />
-        <br>
-        <input class="button" type="submit" value="Submit">
-      <form>
-    </div>
-  </body>
+    <head>
+        <%- include ('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/navStyles.css" />
+        <link rel="stylesheet" href="/css/landingStyles.css" />
+        <link rel="stylesheet" href="/css/globalStyles.css" />
+    </head>
+    <body>
+        <nav><%- include ('../partials/nav.ejs') %></nav>
+        <div class="container">
+            <div class="container-2">
+                <img
+                    src="/images/landing.gif"
+                    id="landing-page-gif"
+                    class="responsive-img z-depth-3"
+                    alt="moodset-gif"
+                />
+            </div>
+            <h1 class="new">New User</h1>
+            <div class="row">
+                <form
+                    class="col s12 center-align"
+                    action="/users"
+                    method="POST"
+                >
+                    <div class="input-field">
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            class="validate"
+                            required
+                        />
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input
+                            type="text"
+                            name="first_name"
+                            id="first_name"
+                            class="validate"
+                            required
+                        />
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            class="validate"
+                            required
+                        />
+                        <label for="password">Password:</label>
+                    </div>
+                    <!-- <input class="button" type="submit" value="Submit" /> -->
+                    <button
+                        class="btn-flat waves-effect waves cyan-text text-lighten-2 center-align"
+                        type="submit"
+                        name="action"
+                    >
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
