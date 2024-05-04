@@ -1,0 +1,12 @@
+h2 {
+    margin-bottom: 1em;
+}
+
+@media (min-width: 500px) {
+    #landing-page-gif {
+        max-width: 80%;
+    }
+    .container-2 {
+        text-align: center;
+    }
+}

@@ -1,17 +1,25 @@
-<a href="/playlist">
-  <img src="/images/moodsetlogo.png" class="brand-logo left" />
-</a>
-<ul class="right">
-  <li><a href="/playlist/new">Create Playlist</a></li>
-  <% if (currentUser) { %>
-    <li class="welcome">Welcome, <%= currentUser.username %></li>
-    <li>
-      <form action="/sessions?_method=DELETE" method="post">
-        <input type="submit" value="Log Out" class="btn-small">
-      </form>
-    </li>
-  <% } else { %>
-    <li><a href="/users/new">Sign Up</a> </li>
-    <li><a href="/sessions/new">Log In</a> </li>
-  <% } %>
-</ul>
+<div class="nav-wrapper">
+    <a href="/playlist" class="brand-logo left">
+        <img src="/images/moodsetlogo.png" />
+    </a>
+    <ul id="nav-mobile" class="right">
+        <% if (currentUser) { %>
+        <li>Welcome, <%= currentUser.username %></li>
+        <li>
+            <a href="/playlist/new">Create Playlist</a>
+        </li>
+        <li>
+            <form action="/sessions?_method=DELETE" method="post">
+                <input type="submit" value="Log Out" class="btn-small" />
+            </form>
+        </li>
+        <% } else { %>
+        <li>
+            <a href="/users/new">Sign Up</a>
+        </li>
+        <li>
+            <a href="/sessions/new">Log In</a>
+        </li>
+        <% } %>
+    </ul>
+</div>

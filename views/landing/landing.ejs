@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include ('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/styles.css">
-  </head>
-  <body>
-    <nav>
-      <%- include ('../partials/nav.ejs') %>
-    </nav>
-    <div class="container">
-      <img src="/images/landing.gif" id="gif" alt="moodset gif" />
-      <h4 class="happy">Welcome to your happy place</h4>
-    </div>
-    <div class="wrap">
-      <div class="landingp">
-        <p id="intro">
-          We're so glad you're here. This is a space designed for you to create your own story. No matter what task you're working on, we want to make sure it's as enjoyable as possible. Music is one of the best ways available to set your own mood which can help maximize your potential, and we could not be more excited to be a part of your story.
-          <br><br>
-          Click <a href="/users/new">Sign Up</a> to create your account and start setting your mood.
-        </p>
-      </div>
-    </div>
-      <footer class="page-footer">
-        <%- include ('../partials/footer.ejs') %>
-      </footer>
-  </body>
+    <head>
+        <%- include ('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/navStyles.css" />
+        <link rel="stylesheet" href="/css/landingStyles.css" />
+        <link rel="stylesheet" href="/css/globalStyles.css" />
+    </head>
+    <body>
+        <nav><%- include ('../partials/nav.ejs') %></nav>
+        <div class="container">
+            <div class="container-2">
+                <img
+                    src="/images/landing.gif"
+                    id="landing-page-gif"
+                    class="responsive-img z-depth-3"
+                    alt="moodset-gif"
+                />
+            </div>
+            <h2 class="center-align white-text">Welcome to your happy place</h2>
+            <p class="flow-text center-align blue-grey-text text-lighten-5">
+                We're so glad you're here. This is a space designed for you to
+                set your own stage. No matter what you're doing, we want to make
+                sure it's as enjoyable as possible. Music is one of the best
+                ways available to set your own mood which can help maximize your
+                vibe, and we could not be more excited to be a part of your
+                story.
+                <br /><br />
+                Tap&nbsp
+                <a
+                    href="/users/new"
+                    class="btn-floating cyan-text text-lighten-2 pulse"
+                >
+                    <i class="medium material-icons">touch_app</i>
+                </a>
+                &nbspto set your mood.
+            </p>
+        </div>
+        <%- include ('../partials/jsCDN.ejs') %>
+    </body>
 </html>
