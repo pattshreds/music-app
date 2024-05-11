@@ -1,17 +1,23 @@
-# Moodset - Playlist Creation
+<img
+  src="/images/landing.gif"
+  alt="moodset-gif"
+/>
 
 <h3> Welcome! </h3>
 What started as a school project has turned into a long-term endeavor to create a playlist-builder app without following any tutorials.
 
+<br><br>
+
 I started building this by organizing my folders in an MVC structure, and getting a route setup to test the server. After that I spent a lot of time working on the functionality and eventually styling. This app uses MongoDB, Express, EJS, Node, Cloudinary, Express-Sessions, Bcrypt, and Materialize CSS along with a few other packages The hosting was provided by Railway, but am now exploring different options. This app will be deployed very soon!
 
-Link to the app is
+<br><br>
+
+Link to the app is:
+Coming Soon!
 
 <!-- <a href="https://moodset.up.railway.app/landing/landing">
 here.
 </a> -->
-
-Coming Soon!
 
 <hr>
 
@@ -26,6 +32,8 @@ Coming Soon!
   <li>Improve playhead scrubbing visually.</li>
   <li>Render the artist and song title inside the player for each audio file.</li>
 </ul>
+
+<hr>
 
 <h3> Update Blog </h3>
 
