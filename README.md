@@ -1,5 +1,5 @@
 <img
-  src="/images/landing.gif"
+  src="./public/images/landing.gif"
   alt="moodset-gif"
 />
 
