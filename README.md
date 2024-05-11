@@ -4,9 +4,10 @@
 />
 
 <h3> Welcome! </h3>
+
 What started as a school project has turned into a long-term endeavor to create a playlist-builder app without following any tutorials.
 
-<br>
+<br><br>
 
 I started building this by organizing my folders in an MVC structure, and getting a route setup to test the server. After that I spent a lot of time working on the functionality and eventually styling. This app uses MongoDB, Express, EJS, Node, Cloudinary, Express-Sessions, Bcrypt, and Materialize CSS along with a few other packages The hosting was provided by Railway, but am now exploring different options. This app will be deployed very soon!
 
