@@ -1,0 +1,24 @@
+<div class="player-border">
+    <div class="audio-player">
+        <div class="songData"></div>
+        <% for (let i=0; i < playlist.audio.length; i++) { %> <%
+        console.log(`loop number ${i}`); %>
+        <audio src="<%= playlist.audio[i] %>"></audio>
+        <% } %>
+        <div class="controls">
+            <button class="player-buttons cyan-text text-lighten-3">
+                <i class="material-icons" id="play">play_arrow</i>
+                <i class="material-icons" id="pause">pause</i>
+            </button>
+            <div class="timeline grey lighten-2">
+                <div class="playhead cyan lighen-3"></div>
+            </div>
+            <div id="current-time">0:00</div>
+            <div id="total-time">0:00</div>
+            <button class="volume-buttons cyan-text text-lighten-3">
+                <i class="material-icons" id="volume-on">volume_up</i>
+                <i class="material-icons" id="mute">volume_mute</i>
+            </button>
+        </div>
+    </div>
+</div>

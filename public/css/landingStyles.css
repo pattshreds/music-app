@@ -2,6 +2,14 @@ h2 {
     margin-bottom: 1em;
 }
 
+.container-2 {
+    margin-top: -1em;
+}
+
+section {
+    margin: 1em auto;
+}
+
 @media (min-width: 500px) {
     #landing-page-gif {
         max-width: 80%;

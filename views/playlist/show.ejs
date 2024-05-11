@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include ('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/styles.css">
-  </head>
-  <body>
-    <nav>
-      <%- include ('../partials/nav.ejs') %>
-    </nav>
-      <div class="container">
-        <h1 id="showtitle"> <%= playlist.playlistTitle %> </h1>
-        <p><i>Edit playlist to add music</i></p>
-        <h5> <%= playlist.playlistDescription %> </h5>
-        <a href="/playlist/<%=playlist._id%>/edit">Edit this playlist</a>
-        <form action="/playlist/<%=playlist._id%>?_method=DELETE" method="POST">
-          <input class="button" type="submit" value="Delete this playlist">
-        </form>
-        <br/><br/>
-        <% for (i = 0; i < playlist.audio.length; i++) { %>
-        <audio id="audio-controls" controls>
-          <source src="<%=playlist.audio[i]%>">
-        </audio>
-        <br />
-        <% } %>
-      </div>
-      <footer class="page-footer">
-        <%- include ('../partials/footer.ejs') %>
-      </footer>
-
-      <script>
-      const stopped = document.getElementByClassName("pause");
-      const player = document.getElementById("audio-controls");
-      if (stopped) {
-        player.style.borderColor = "red"
-        player.style.borderWidth = "10px"
-      } else {
-        player.style.borderColor = "blue"
-      }
-      </script>
-  </body>
+    <head>
+        <%- include ('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/navStyles.css" />
+        <link rel="stylesheet" href="/css/landingStyles.css" />
+        <link rel="stylesheet" href="/css/globalStyles.css" />
+        <link rel="stylesheet" href="/css/audioPlayerStyles.css" />
+        <script src="/JS/player.js" defer></script>
+    </head>
+    <body>
+        <nav><%- include ('../partials/nav.ejs') %></nav>
+        <div class="container">
+            <h1 class="grey-text text-lighten-3">
+                <%= playlist.playlistTitle %>
+            </h1>
+            <h4 class="cyan-text text-lighten-3"><%=playlist.songArtist%></h4>
+            <h4 class="cyan-text text-lighten-3"><%= playlist.songTitle %></h4>
+            <p class="grey-text text-lighten-3">
+                <%= playlist.playlistDescription %>
+            </p>
+            <p class="grey-text">
+                <i>Edit playlist to add music</i>
+            </p>
+            <a
+                href="/playlist/<%=playlist._id%>/edit"
+                class="btn-flat yellow-text text-darken-3 waves-effect waves-cyan"
+                >Edit this playlist</a
+            >
+            <form
+                action="/playlist/<%=playlist._id%>?_method=DELETE"
+                method="POST"
+            >
+                <button
+                    type="submit"
+                    name="action"
+                    class="btn-flat yellow-text text-darken-3 waves-effect waves-cyan"
+                >
+                    Delete this mood
+                </button>
+                <br /><br />
+            </form>
+            <div id="playlist-container">
+                <%- include('../partials/player.ejs') %>
+            </div>
+        </div>
+    </body>
 </html>

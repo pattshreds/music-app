@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include ('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/styles.css">
-  </head>
-  <body>
-    <nav>
-      <%- include ('../partials/nav.ejs') %>
-    </nav>
-    <div class="container">
-      <h1 class="title" class="playlists">Playlists</h1>
-        <ul>
-          <% for (let i = 0; i < playlist.length; i++) { %>
-            <li>
-              <a href="/playlist/<%=playlist[i]._id%>">
-                <%= playlist[i].playlistTitle %>
-              </a>
-            </li>
-          <% } %>
-    </div>
-    <footer class="page-footer">
-      <%- include ('../partials/footer.ejs') %>
-    </footer>
-  </body>
+    <head>
+        <%- include ('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/navStyles.css" />
+        <link rel="stylesheet" href="/css/landingStyles.css" />
+        <link rel="stylesheet" href="/css/globalStyles.css" />
+    </head>
+    <body>
+        <nav><%- include ('../partials/nav.ejs') %></nav>
+        <div class="container">
+            <h1 class="grey-text text-lighten-3">Playlists</h1>
+            <ul>
+                <% for (let i = 0; i < playlist.length; i++) { %>
+                <li>
+                    <a
+                        href="/playlist/<%=playlist[i]._id%>"
+                        class="btn-flat cyan-text waves-effect waves-yellow yellow-3"
+                    >
+                        <%= playlist[i].playlistTitle %>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+    </body>
 </html>

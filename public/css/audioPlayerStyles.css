@@ -1,0 +1,138 @@
+@keyframes playerBorder {
+    0% {
+        background-position: 0% 75%;
+    }
+
+    25% {
+        background-position: 25% 100%;
+    }
+
+    50% {
+        background-position: 50% 75%;
+    }
+
+    75% {
+        background-position: 25% 50%;
+    }
+
+    100% {
+        background-position: 0% 75%;
+    }
+}
+
+.player-border {
+    background: linear-gradient(
+        90deg,
+        rgb(76, 255, 106),
+        rgb(255, 18, 243),
+        rgb(4, 0, 255),
+        rgb(115, 22, 228),
+        rgb(0, 255, 170),
+        rgb(255, 118, 244)
+    );
+    background-size: 400% 400%;
+    animation: playerBorder 7s ease infinite;
+    padding: 2px;
+    border-radius: 20px;
+    padding: 5px;
+    max-width: 30em;
+}
+
+.audio-player {
+    --player-button-width: 3em;
+    --sound-button-width: 2em;
+    --space: 0.5em;
+    background-color: rgb(77, 77, 77);
+    border-radius: 15px;
+}
+
+.songData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h3,
+h5 {
+    padding: 0;
+    margin: 0 0 5px 0;
+}
+
+.controls {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.player-buttons {
+    background-color: transparent;
+    border: 0;
+    width: var(--player-button-width);
+    height: var(--player-button-width);
+    cursor: pointer;
+    padding: 0;
+    & #pause {
+        display: none;
+    }
+}
+
+.player-button-toggle {
+    & #pause {
+        display: block;
+    }
+    & #play {
+        display: none;
+    }
+}
+
+button:focus {
+    background-color: transparent;
+}
+
+.timeline {
+    display: flex;
+    align-items: center;
+    width: 190px;
+    height: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.playhead {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 1px;
+    background: rgba(0, 0, 0, 1);
+}
+
+#current-time,
+#total-time {
+    font: 8px;
+}
+
+.volume-buttons {
+    background-color: transparent;
+    border: 0;
+    width: var(--sound-button-width);
+    height: var(--sound-button-width);
+    cursor: pointer;
+    padding: 0;
+    & #volume-on {
+        display: none;
+    }
+}
+
+.volume-button-toggle {
+    & #volume-on {
+        display: block;
+    }
+    & #mute {
+        display: none;
+    }
+}

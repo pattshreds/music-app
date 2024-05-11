@@ -1,28 +1,90 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <%- include ('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/styles.css">
-  </head>
-  <body>
-    <nav>
-      <%- include ('../partials/nav.ejs') %>
-    </nav>
-    <div class="container">
-      <h1 class="title">Create a new playlist</h1>
-        <form class="create" action="/playlist" enctype="multipart/form-data" method="POST">
-          <label for="playlistTitle">Title</label>
-          <input type="text" name="playlistTitle" required />
-          <label for="playlistDescription">Description</label>
-          <input type="text" name="playlistDescription" required />
-          <input type="file" name="audio">
-          <br><br>
-          <input type="submit" value="Create">
-        </form>
-  </div>
-    <br><br>
-    <footer class="page-footer">
-      <%- include ('../partials/footer.ejs') %>
-    </footer>
-  </body>
+    <head>
+        <%- include ('../partials/head.ejs') %>
+        <link rel="stylesheet" href="/css/navStyles.css" />
+        <link rel="stylesheet" href="/css/landingStyles.css" />
+        <link rel="stylesheet" href="/css/globalStyles.css" />
+    </head>
+    <body>
+        <nav><%- include ('../partials/nav.ejs') %></nav>
+        <div class="container">
+            <h1 class="grey-text text-lighten-3">Create a new playlist</h1>
+            <div class="row">
+                <form
+                    class="col s12 center-align"
+                    action="/playlist"
+                    enctype="multipart/form-data"
+                    method="POST"
+                >
+                    <div class="input-field">
+                        <input
+                            type="text"
+                            name="playlistTitle"
+                            id="playlistTitle"
+                            class="validate"
+                            required
+                        />
+                        <label for="playlistTitle">Playlist Title</label>
+                    </div>
+                    <div class="input-field">
+                        <input
+                            type="text"
+                            name="playlistDescription"
+                            id="playlistDescription"
+                            class="validate"
+                            required
+                        />
+                        <label for="playlistDescription"
+                            >Playlist Description</label
+                        >
+                    </div>
+                    <div class="input-field">
+                        <input
+                            type="text"
+                            name="songArtist"
+                            id="songArtist"
+                            class="validate"
+                            required
+                        />
+                        <label for="songArtist">Artist</label>
+                    </div>
+                    <div class="input-field">
+                        <input
+                            type="text"
+                            name="songTitle"
+                            id="songTitle"
+                            class="validate"
+                            required
+                        />
+                        <label for="songTitle">Song Title</label>
+                    </div>
+                    <div class="input-field">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" name="audio" />
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input
+                                    class="file-path validate"
+                                    type="text"
+                                    placeholder="Upload one file"
+                                />
+                            </div>
+                        </div>
+                        <br />
+                        <button
+                            class="btn waves-effect waves-light"
+                            type="submit"
+                            name="action"
+                        >
+                            Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

@@ -4,13 +4,19 @@
     </a>
     <ul id="nav-mobile" class="right">
         <% if (currentUser) { %>
-        <li>Welcome, <%= currentUser.username %></li>
+        <li>Welcome, <%= currentUser.username %>!</li>
         <li>
             <a href="/playlist/new">Create Playlist</a>
         </li>
         <li>
             <form action="/sessions?_method=DELETE" method="post">
-                <input type="submit" value="Log Out" class="btn-small" />
+                <button
+                    type="submit"
+                    name="action"
+                    class="btn-flat cyan-text waves-effect waves-yellow yellow-3"
+                >
+                    Log Out
+                </button>
             </form>
         </li>
         <% } else { %>

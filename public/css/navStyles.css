@@ -1,5 +1,6 @@
 nav {
     margin-bottom: 5em;
+    padding-right: 2em;
 }
 
 .brand-logo {
@@ -10,4 +11,20 @@ nav {
 .brand-logo img {
     width: 100%;
     margin: -25px auto auto -10px;
+}
+
+/* form {
+    margin-right: -1em;
+} */
+
+.btn-flat {
+    font-weight: bold;
+    margin: -2px 0 0 0;
+    padding: 0;
+}
+
+@media (max-width: 450px) {
+    nav {
+        padding-right: 1em;
+    }
 }
