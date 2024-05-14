@@ -12,8 +12,6 @@ const volumeButtons = document.querySelector('.volume-buttons');
 const volume = playerButtons.children[0];
 const mute = playerButtons.children[1];
 
-console.log(audio);
-
 const togglePlayback = () => {
     if (audio.paused) {
         audio.play();

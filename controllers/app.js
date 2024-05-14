@@ -3,14 +3,14 @@ const Playlists = require('../models/playlists.js');
 const cloudinary = require('cloudinary').v2;
 const playlist = express.Router();
 
-const isAuthenticted = (req, res, next) => {
-    if (req.session.currentUser) {
-        return next();
-    } else {
-        res.redirect('/landing/landing');
-    }
-};
-playlist.use(isAuthenticted);
+// const isAuthenticted = (req, res, next) => {
+//     if (req.session.currentUser) {
+//         return next();
+//     } else {
+//         res.redirect('/landing/landing');
+//     }
+// };
+// playlist.use(isAuthenticted);
 
 // New
 
@@ -38,12 +38,14 @@ playlist.delete('/:id', (req, res) => {
 });
 
 // Show
+
 playlist.get('/:id', (req, res) => {
     Playlists.findById(req.params.id, (error, foundPlaylists) => {
         res.render('playlist/show.ejs', {
             playlist: foundPlaylists,
             currentUser: req.session.currentUser,
         });
+        console.log(foundPlaylists);
     });
 });
 
@@ -101,10 +103,17 @@ playlist.get('/setup/seed', (req, res) => {
                 playlistTitle: 'Demo Playlist',
                 playlistDescription:
                     'This is a playlist page that I setup for demo purposes!',
-                songArtist: 'Cher',
-                songTitle: 'Believe',
-                audio: [
-                    'https://res.cloudinary.com/sven2050/video/upload/v1715462266/cher_quveof.mp3',
+                songData: [
+                    {
+                        songArtist: 'Cher',
+                        songTitle: 'Believe',
+                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1715462266/cher_quveof.mp3',
+                    },
+                    {
+                        songArtist: 'Cher Again',
+                        songTitle: 'Believe Two',
+                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1715462266/cher_quveof.mp3',
+                    },
                 ],
             },
         ],

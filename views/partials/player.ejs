@@ -1,10 +1,16 @@
 <div class="player-border">
     <div class="audio-player">
-        <div class="songData"></div>
-        <% for (let i=0; i < playlist.audio.length; i++) { %> <%
-        console.log(`loop number ${i}`); %>
-        <audio src="<%= playlist.audio[i] %>"></audio>
-        <% } %>
+        <div class="songData">
+            <% for (let i=0; i < playlist.songData.length; i++) { %>
+            <p class="cyan-text text-lighten-3">
+                <%= playlist.songData[i].songArtist %>
+            </p>
+            <p class="cyan-text text-lighten-3">
+                <%= playlist.songData[i].songTitle %>
+            </p>
+            <audio src="<%= playlist.songData[i].src %>"></audio>
+            <% } %>
+        </div>
         <div class="controls">
             <button class="player-buttons cyan-text text-lighten-3">
                 <i class="material-icons" id="play">play_arrow</i>
