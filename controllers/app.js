@@ -9,15 +9,26 @@ playlist.get('/', (req, res) => {
     res.render('landing/landing.ejs', { currentUser: req.session.currentUser });
 });
 
+// Index
+playlist.get('/playlist', (req, res) => {
+    Playlists.find({}, (error, allplaylist) => {
+        res.render('playlist/index.ejs', {
+            playlist: allplaylist,
+            currentUser: req.session.currentUser,
+            audio: allplaylist.audio,
+        });
+    });
+});
+
 // New
 
-playlist.get('/new', (req, res) => {
+playlist.get('/playlist/new', (req, res) => {
     res.render('playlist/new.ejs', { currentUser: req.session.currentUser });
 });
 
 // Edit
 
-playlist.get('/:id/edit', (req, res) => {
+playlist.get('/playlist/:id/edit', (req, res) => {
     Playlists.findById(req.params.id, (error, foundPlaylists) => {
         res.render('playlist/edit.ejs', {
             playlist: foundPlaylists,
@@ -28,7 +39,7 @@ playlist.get('/:id/edit', (req, res) => {
 
 // Delete
 
-playlist.delete('/:id', (req, res) => {
+playlist.delete('/playlist/:id', (req, res) => {
     Playlists.findByIdAndRemove(req.params.id, (error, deletedPlaylist) => {
         res.redirect('/playlist');
     });
@@ -36,7 +47,7 @@ playlist.delete('/:id', (req, res) => {
 
 // Show
 
-playlist.get('/:id', (req, res) => {
+playlist.get('/playlist/:id', (req, res) => {
     Playlists.findById(req.params.id, (error, foundPlaylists) => {
         res.render('playlist/show.ejs', {
             trackIndex: 0,
@@ -78,17 +89,6 @@ playlist.post('/', (req, res) => {
             }
         }
     );
-});
-
-// Index
-playlist.get('/', (req, res) => {
-    Playlists.find({}, (error, allplaylist) => {
-        res.render('playlist/index.ejs', {
-            playlist: allplaylist,
-            currentUser: req.session.currentUser,
-            audio: allplaylist.audio,
-        });
-    });
 });
 
 // Seed

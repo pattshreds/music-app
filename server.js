@@ -60,18 +60,14 @@ app.use(
 const appController = require('./controllers/app.js');
 app.use('/', appController);
 
-// app.get('/', (req, res) => {
-//     res.redirect('/landing');
-// });
-
 const userController = require('./controllers/users.js');
 app.use('/users', userController);
 
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 
-const landingController = require('./controllers/landing.js');
-app.use('/landing', landingController);
+// const landingController = require('./controllers/landing.js');
+// app.use('/landing', landingController);
 
 //====================
 // Listener
