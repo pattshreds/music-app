@@ -6,6 +6,7 @@ const cloudinary = require('cloudinary').v2;
 const fileUpload = require('express-fileupload');
 const app = express();
 const db = mongoose.connection;
+const cors = require('cors');
 require('dotenv').config();
 
 cloudinary.config({
@@ -13,6 +14,8 @@ cloudinary.config({
     api_key: process.env.API_KEY,
     api_secret: process.env.API_SECRET,
 });
+
+app.use(cors());
 
 app.use(
     fileUpload({
@@ -55,11 +58,11 @@ app.use(
 //====================
 
 const appController = require('./controllers/app.js');
-app.use('/playlist', appController);
+app.use('/', appController);
 
-app.get('/', (req, res) => {
-    res.redirect('/playlist');
-});
+// app.get('/', (req, res) => {
+//     res.redirect('/landing');
+// });
 
 const userController = require('./controllers/users.js');
 app.use('/users', userController);

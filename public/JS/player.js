@@ -1,6 +1,6 @@
-const playerButtons = document.querySelector('.player-buttons');
-const play = playerButtons.children[0];
-const pause = playerButtons.children[1];
+const playButtons = document.querySelector('.play-buttons');
+const play = playButtons.children[0];
+const pause = playButtons.children[1];
 const audio = document.querySelector('audio');
 const duration = audio.duration;
 const currentTime = audio.currentTime;
@@ -9,23 +9,49 @@ const timeline = document.querySelector('.timeline');
 const currentTimeDisplay = document.getElementById('current-time');
 const totalTimeDisplay = document.getElementById('total-time');
 const volumeButtons = document.querySelector('.volume-buttons');
-const volume = playerButtons.children[0];
-const mute = playerButtons.children[1];
+const volume = volumeButtons.children[0];
+const mute = volumeButtons.children[1];
+const songArtist = document.querySelectorAll('.song-artist');
+const songTitle = document.querySelectorAll('.song-title');
+const seekNext = document.querySelector('.next-track');
+const songSrc = document.querySelectorAll('.song-source');
+
+// console.log(songSrc[0].innerHTML);
+
+let trackIndex = 0;
+songArtist[trackIndex].style.display = 'block';
+songTitle[trackIndex].style.display = 'block';
+audio.src = songSrc[trackIndex].innerHTML;
+
+seekNext.addEventListener('click', () => {
+    if (trackIndex < songArtist.length - 1) {
+        songArtist[trackIndex].style.display = 'none';
+        songTitle[trackIndex].style.display = 'none';
+        console.log(audio);
+        trackIndex += 1;
+        songArtist[trackIndex].style.display = 'block';
+        songTitle[trackIndex].style.display = 'block';
+        audio.src = songSrc[trackIndex].innerHTML;
+    } else {
+        alert('No more songs!');
+    }
+});
 
 const togglePlayback = () => {
+    console.log(audio);
     if (audio.paused) {
         audio.play();
-        playerButtons.classList.toggle('player-button-toggle');
+        playButtons.classList.toggle('play-button-toggle');
     } else {
         audio.pause();
-        playerButtons.classList.toggle('player-button-toggle');
+        playButtons.classList.toggle('play-button-toggle');
     }
 };
 
-playerButtons.addEventListener('click', togglePlayback);
+playButtons.addEventListener('click', togglePlayback);
 
 const audioEnd = () => {
-    playerButtons.classList.toggle('player-button-toggle');
+    playButtons.classList.toggle('play-button-toggle');
 };
 
 audio.onended = audioEnd;

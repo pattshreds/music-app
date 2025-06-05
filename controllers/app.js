@@ -3,14 +3,11 @@ const Playlists = require('../models/playlists.js');
 const cloudinary = require('cloudinary').v2;
 const playlist = express.Router();
 
-// const isAuthenticted = (req, res, next) => {
-//     if (req.session.currentUser) {
-//         return next();
-//     } else {
-//         res.redirect('/landing/landing');
-//     }
-// };
-// playlist.use(isAuthenticted);
+// Landing
+
+playlist.get('/', (req, res) => {
+    res.render('landing/landing.ejs', { currentUser: req.session.currentUser });
+});
 
 // New
 
@@ -42,10 +39,10 @@ playlist.delete('/:id', (req, res) => {
 playlist.get('/:id', (req, res) => {
     Playlists.findById(req.params.id, (error, foundPlaylists) => {
         res.render('playlist/show.ejs', {
+            trackIndex: 0,
             playlist: foundPlaylists,
             currentUser: req.session.currentUser,
         });
-        console.log(foundPlaylists);
     });
 });
 
@@ -110,9 +107,34 @@ playlist.get('/setup/seed', (req, res) => {
                         src: 'https://res.cloudinary.com/sven2050/video/upload/v1715462266/cher_quveof.mp3',
                     },
                     {
-                        songArtist: 'Cher Again',
-                        songTitle: 'Believe Two',
-                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1715462266/cher_quveof.mp3',
+                        songArtist: 'Bakar',
+                        songTitle: 'Hell N Back',
+                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1679351615/Moodset/Bakar_-_Hell_N_Back_Official_Video_cdr2mb.mp3',
+                    },
+                    {
+                        songArtist: 'Earth Wind & Fire',
+                        songTitle: 'Shining Star',
+                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1679867484/Moodset/YT2mp3.info_-_Earth_Wind_Fire_-_Shining_Star_Official_Audio_320kbps_j4o746.mp3',
+                    },
+                    {
+                        songArtist: 'Fleetwood Mac',
+                        songTitle: ' Dreams',
+                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1716319979/Dreams_2004_Remaster_xeemjx.mp3',
+                    },
+                    {
+                        songArtist: 'Whitney Houston',
+                        songTitle: 'I Wanna Dance With Somebody',
+                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1716319979/Whitney_Houston_-_I_Wanna_Dance_With_Somebody_Official_Music_Video_stzeyw.mp3',
+                    },
+                    {
+                        songArtist: 'Cyndi Lauper',
+                        songTitle: 'Girls Just Wanna Have Fun',
+                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1716319979/Cyndi_Lauper_-_Girls_Just_Want_To_Have_Fun_Official_Video_ucvnzj.mp3',
+                    },
+                    {
+                        songArtist: 'Fleetwood Mac',
+                        songTitle: 'Everywhere',
+                        src: 'https://res.cloudinary.com/sven2050/video/upload/v1716319979/Everywhere_2002_Remaster_j13maw.mp3',
                     },
                 ],
             },

@@ -1,26 +1,39 @@
 <div class="player-border">
     <div class="audio-player">
-        <div class="songData">
-            <% for (let i=0; i < playlist.songData.length; i++) { %>
-            <p class="cyan-text text-lighten-3">
-                <%= playlist.songData[i].songArtist %>
+        <div class="song-data">
+            <% playlist.songData.forEach(track => { %>
+            <p
+                style="display: none"
+                class="cyan-text text-lighten-3 song-artist"
+            >
+                <%= track.songArtist %>
             </p>
-            <p class="cyan-text text-lighten-3">
-                <%= playlist.songData[i].songTitle %>
+            <p
+                style="display: none"
+                class="cyan-text text-lighten-3 song-title"
+            >
+                <%= track.songTitle %>
             </p>
-            <audio src="<%= playlist.songData[i].src %>"></audio>
-            <% } %>
+            <p style="display: none" class="song-source"><%= track.src %></p>
+            <audio></audio>
+            <% }); %>
         </div>
         <div class="controls">
-            <button class="player-buttons cyan-text text-lighten-3">
+            <button class="play-buttons cyan-text text-lighten-3">
                 <i class="material-icons" id="play">play_arrow</i>
                 <i class="material-icons" id="pause">pause</i>
+            </button>
+            <button class="seek-buttons yellow-text text-darken-3">
+                <i class="material-icons" id="prev-track">skip_previous</i>
             </button>
             <div class="timeline grey lighten-2">
                 <div class="playhead cyan lighen-3"></div>
             </div>
             <div id="current-time">0:00</div>
             <div id="total-time">0:00</div>
+            <button class="seek-buttons next-track yellow-text text-darken-3">
+                <i class="material-icons">skip_next</i>
+            </button>
             <button class="volume-buttons cyan-text text-lighten-3">
                 <i class="material-icons" id="volume-on">volume_up</i>
                 <i class="material-icons" id="mute">volume_mute</i>
