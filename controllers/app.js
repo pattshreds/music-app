@@ -4,30 +4,33 @@ const cloudinary = require('cloudinary').v2;
 const playlist = express.Router();
 
 // Landing
-
 playlist.get('/', (req, res) => {
     res.render('landing/landing.ejs', { currentUser: req.session.currentUser });
 });
 
-// Index
+// Playlist Index
 playlist.get('/playlist', (req, res) => {
-    Playlists.find({}, (error, allplaylist) => {
-        res.render('playlist/index.ejs', {
-            playlist: allplaylist,
-            currentUser: req.session.currentUser,
-            audio: allplaylist.audio,
+    if (req.session.currentUser) {
+        Playlists.find({}, (error, allplaylist) => {
+            res.render('playlist/index.ejs', {
+                playlist: allplaylist,
+                currentUser: req.session.currentUser,
+                audio: allplaylist.audio,
+            });
         });
-    });
+    } else {
+        res.redirect('/', {
+            currentUser: req.session.currentUser,
+        });
+    }
 });
 
 // New
-
 playlist.get('/playlist/new', (req, res) => {
     res.render('playlist/new.ejs', { currentUser: req.session.currentUser });
 });
 
 // Edit
-
 playlist.get('/playlist/:id/edit', (req, res) => {
     Playlists.findById(req.params.id, (error, foundPlaylists) => {
         res.render('playlist/edit.ejs', {
@@ -38,7 +41,6 @@ playlist.get('/playlist/:id/edit', (req, res) => {
 });
 
 // Delete
-
 playlist.delete('/playlist/:id', (req, res) => {
     Playlists.findByIdAndRemove(req.params.id, (error, deletedPlaylist) => {
         res.redirect('/playlist');
@@ -46,7 +48,6 @@ playlist.delete('/playlist/:id', (req, res) => {
 });
 
 // Show
-
 playlist.get('/playlist/:id', (req, res) => {
     Playlists.findById(req.params.id, (error, foundPlaylists) => {
         res.render('playlist/show.ejs', {
@@ -58,7 +59,6 @@ playlist.get('/playlist/:id', (req, res) => {
 });
 
 // Update
-
 playlist.put('/:id', (req, res) => {
     Playlists.findByIdAndUpdate(
         req.params.id,
@@ -71,7 +71,6 @@ playlist.put('/:id', (req, res) => {
 });
 
 // Create
-
 playlist.post('/', (req, res) => {
     const audioFile = req.files.audio;
     console.log(audioFile);
