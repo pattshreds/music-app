@@ -39,5 +39,17 @@
                 <i class="material-icons" id="mute">volume_mute</i>
             </button>
         </div>
+        <div id="trackListContainer">
+            <ul class="trackList">
+                <% for (let i=0; i < playlist.songData.length; i++) { %>
+                <li class="track">
+                    <%=playlist.songData[i].songArtist %> -
+                    <p class="tracklist-title">
+                        <%= playlist.songData[i].songTitle %>
+                    </p>
+                </li>
+                <% } %>
+            </ul>
+        </div>
     </div>
 </div>

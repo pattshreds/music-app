@@ -15,13 +15,27 @@ const songArtist = document.querySelectorAll('.song-artist');
 const songTitle = document.querySelectorAll('.song-title');
 const seekNext = document.querySelector('.next-track');
 const songSrc = document.querySelectorAll('.song-source');
-
-// console.log(songSrc[0].innerHTML);
+const trackListTitle = document.querySelectorAll('.tracklist-title');
+const track = document.querySelectorAll('.track');
 
 let trackIndex = 0;
 songArtist[trackIndex].style.display = 'block';
 songTitle[trackIndex].style.display = 'block';
 audio.src = songSrc[trackIndex].innerHTML;
+track[trackIndex].style.fontWeight = 'bold';
+
+const currentTrack = () => {
+    for (let i = 0; i < songTitle.length; i++) {
+        if (
+            songTitle[trackIndex].innerText.replace(/\s+/g, '') ==
+            trackListTitle[i].innerText.replace(/\s+/g, '')
+        ) {
+            // console.log('current song = ' + trackListTitle[i].innerText);
+            track[i - 1].style.fontWeight = 'normal';
+            track[i].style.fontWeight = 'bold';
+        }
+    }
+};
 
 seekNext.addEventListener('click', () => {
     if (trackIndex < songArtist.length - 1) {
@@ -32,6 +46,7 @@ seekNext.addEventListener('click', () => {
         songArtist[trackIndex].style.display = 'block';
         songTitle[trackIndex].style.display = 'block';
         audio.src = songSrc[trackIndex].innerHTML;
+        currentTrack();
     } else {
         alert('No more songs!');
     }
