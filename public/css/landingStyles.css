@@ -18,3 +18,7 @@ section {
         text-align: center;
     }
 }
+
+.mobile-button {
+    margin-top: -20px;
+}

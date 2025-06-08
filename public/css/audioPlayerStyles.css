@@ -21,17 +21,9 @@
 }
 
 .player-border {
-    background: linear-gradient(
-        90deg,
-        rgb(76, 255, 106),
-        rgb(255, 18, 243),
-        rgb(4, 0, 255),
-        rgb(115, 22, 228),
-        rgb(0, 255, 170),
-        rgb(255, 118, 244)
-    );
-    background-size: 400% 400%;
-    animation: playerBorder 7s ease infinite;
+    background: linear-gradient(25deg, yellow, cyan, gold, tomato, darkcyan);
+    background-size: 200% 200%;
+    animation: playerBorder 6s ease infinite;
     padding: 2px;
     border-radius: 20px;
     padding: 5px;

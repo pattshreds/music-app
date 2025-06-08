@@ -11,7 +11,7 @@
     <body>
         <nav><%- include ('../partials/nav.ejs') %></nav>
         <div class="container">
-            <h1 class="grey-text text-lighten-3">
+            <h1 class="cyan-text text-lighten-3">
                 <%= playlist.playlistTitle %>
             </h1>
             <p class="grey-text text-lighten-3">
@@ -23,7 +23,7 @@
             <a
                 href="/playlist/<%=playlist._id%>/edit"
                 class="btn-flat yellow-text text-darken-3 waves-effect waves-cyan"
-                >Edit this playlist</a
+                >Edit this mood</a
             >
             <form
                 action="/playlist/<%=playlist._id%>?_method=DELETE"
