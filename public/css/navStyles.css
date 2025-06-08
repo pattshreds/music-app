@@ -1,6 +1,5 @@
 nav {
     margin-bottom: 5em;
-    padding-right: 2em;
 }
 
 .brand-logo {
@@ -10,21 +9,31 @@ nav {
 
 .brand-logo img {
     width: 100%;
-    margin: -25px auto auto -10px;
+    margin: -25px auto auto -25px;
 }
 
-/* form {
-    margin-right: -1em;
-} */
+#createPlaylist {
+    margin: auto 5px auto 5px;
+}
+
+#userGreeting {
+    margin-left: 20px;
+}
+
+#userGreeting,
+#createPlaylist {
+    font-weight: 500;
+    margin-top: 1px; /* Can't figure out why these aren't naturally aligned with the Log Out button. */
+}
 
 .btn-flat {
     font-weight: bold;
-    margin: -2px 0 0 0;
     padding: 0;
+    padding-right: 10px;
 }
 
-@media (max-width: 450px) {
-    nav {
-        padding-right: 1em;
+@media (max-width: 500px) {
+    #createPlaylist {
+        margin: 1px auto;
     }
 }
