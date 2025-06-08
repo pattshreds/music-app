@@ -14,6 +14,7 @@ const mute = volumeButtons.children[1];
 const songArtist = document.querySelectorAll('.song-artist');
 const songTitle = document.querySelectorAll('.song-title');
 const seekNext = document.querySelector('.next-track');
+const seekPrev = document.querySelector('.prev-track');
 const songSrc = document.querySelectorAll('.song-source');
 const trackListTitle = document.querySelectorAll('.tracklist-title');
 const track = document.querySelectorAll('.track');
@@ -25,15 +26,13 @@ audio.src = songSrc[trackIndex].innerHTML;
 track[trackIndex].style.fontWeight = 'bold';
 
 const currentTrack = () => {
-    for (let i = 0; i < songTitle.length; i++) {
-        if (
-            songTitle[trackIndex].innerText.replace(/\s+/g, '') ==
-            trackListTitle[i].innerText.replace(/\s+/g, '')
-        ) {
-            // console.log('current song = ' + trackListTitle[i].innerText);
-            track[i - 1].style.fontWeight = 'normal';
-            track[i].style.fontWeight = 'bold';
-        }
+    if (
+        songTitle[trackIndex].innerText.replace(/\s+/g, '') ==
+        trackListTitle[trackIndex].innerText.replace(/\s+/g, '')
+    ) {
+        // console.log('current song = ' + trackListTitle[i].innerText);
+        // track[i - 1].style.fontWeight = 'normal';
+        track[trackIndex].style.fontWeight = 'bold';
     }
 };
 
@@ -46,9 +45,25 @@ seekNext.addEventListener('click', () => {
         songArtist[trackIndex].style.display = 'block';
         songTitle[trackIndex].style.display = 'block';
         audio.src = songSrc[trackIndex].innerHTML;
+        track[trackIndex - 1].style.fontWeight = 'normal';
         currentTrack();
     } else {
         alert('No more songs!');
+    }
+});
+
+seekPrev.addEventListener('click', () => {
+    if (trackIndex > 0) {
+        songArtist[trackIndex].style.display = 'none';
+        songTitle[trackIndex].style.display = 'none';
+        trackIndex -= 1;
+        songArtist[trackIndex].style.display = 'block';
+        songTitle[trackIndex].style.display = 'block';
+        audio.src = songSrc[trackIndex].innerHTML;
+        track[trackIndex + 1].style.fontWeight = 'normal';
+        currentTrack();
+    } else {
+        alert('No previous songs!');
     }
 });
 
