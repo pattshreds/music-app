@@ -37,14 +37,17 @@ const currentTrack = () => {
 };
 
 seekNext.addEventListener('click', () => {
+    if (playButtons.classList.contains('play-button-toggle')) {
+        playButtons.classList.toggle('play-button-toggle');
+    }
     if (trackIndex < songArtist.length - 1) {
         songArtist[trackIndex].style.display = 'none';
         songTitle[trackIndex].style.display = 'none';
-        console.log(audio);
         trackIndex += 1;
         songArtist[trackIndex].style.display = 'block';
         songTitle[trackIndex].style.display = 'block';
         audio.src = songSrc[trackIndex].innerHTML;
+        console.log(audio.src);
         track[trackIndex - 1].style.fontWeight = 'normal';
         currentTrack();
     } else {
@@ -53,6 +56,9 @@ seekNext.addEventListener('click', () => {
 });
 
 seekPrev.addEventListener('click', () => {
+    if (playButtons.classList.contains('play-button-toggle')) {
+        playButtons.classList.toggle('play-button-toggle');
+    }
     if (trackIndex > 0) {
         songArtist[trackIndex].style.display = 'none';
         songTitle[trackIndex].style.display = 'none';
@@ -68,7 +74,6 @@ seekPrev.addEventListener('click', () => {
 });
 
 const togglePlayback = () => {
-    console.log(audio);
     if (audio.paused) {
         audio.play();
         playButtons.classList.toggle('play-button-toggle');
